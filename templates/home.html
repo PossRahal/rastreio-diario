@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rastreio Diario</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+      html {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+    </style>
+  </head>
+
+  <body class="leading-normal tracking-normal text-blue-500 m-6" style="background-color: azure;">
+    <div class="h-full">
+      <!--Nav-->
+      <div class="w-full container mx-auto">
+        <div class="w-full flex items-center justify-between">
+          <a class="flex items-center text-blue-500 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
+            Rastreio<span class="text-yellow-500"> Diario</span>
+          </a>
+        </div>
+      </div>
+
+      <!--Main-->
+      <div class="container mx-auto flex flex-wrap flex-col md:flex-row items-center md:pt-4">
+        <!--Left Col-->
+        <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
+          <h1 class="my-4 text-3xl md:text-5xl text-yellow-500 font-bold leading-tight text-center md:text-left">   
+              Consulte o status do seu pedido!
+          </h1>
+          <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
+            E seja atualizado sobre ele todos os dias as 9:00AM
+          </p>
+
+          <form action="/enviado" method="get" class="bg-gray-700 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+              <label class="block text-white py-2 font-bold mb-2" for="code">
+                Codigo de rastreio:
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                id="code"
+                name="code"
+                type="text"
+                placeholder="Insira aqui o código de rastreio dos correios."
+              />              
+              <label class="block text-white py-2 font-bold mb-2" for="phone">
+                Numero de celular:
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                id="phone"
+                name="phone"
+                type="text"
+                placeholder="+55(DDD)XXXX-XXXX"
+              />
+            </div>
+            <div class="text-gray-300">
+              <div>
+                <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" id="sms-status" type="checkbox" class="mx-2" required>
+                <label for="sms-status">Aceito receber o status via SMS*</label>
+              </div>
+              <div>
+                <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox" id="day" name="day" class="mx-2">  
+                <label for="day">Quero Receber o Status do meu pedido, todo dia as 09:00 da manhã via SMS</label>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4">
+              <button
+                class="bg-gradient-to-r from-blue-800 to-blue-500 hover:from-blue-500 hover:to-blue-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition duration-300 ease-in-out"
+                type="submit"
+              >
+                Solicitar Status
+              </button>
+            </div>
+          </form>
+          <div name="form2">
+            <form action="/parar" method="get">
+                <button
+                class="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition duration-300 ease-in-out"
+                type="submit">
+                Já recebo o status,mas quero parar de receber
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!--Right Col-->
+        <div class="w-full xl:w-3/5 p-12 overflow-hidden">
+          <img class="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6" src="./img/caminhao-de-entrega.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
